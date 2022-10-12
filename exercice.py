@@ -7,7 +7,21 @@ from matplotlib.colors import cnames
 def list_to_dict(some_list: list) -> dict:
     # TODO: Transformer la liste en dictionnaire, les éléments de la liste deviennent les clés et leur index deviennent les valeurs
 
-    return {}
+    # Premiere facon
+    dic = {some_list[i]: i for i in range(len(some_list))}
+
+    # Troisieme facon
+    dic = {valeur: index for index, valeur in enumerate(some_list)}
+
+    # Quatrieme facon
+    dic = dict(zip(some_list, range(len(some_list))))
+
+    # Deuxieme facon
+    dic = {}
+    for i in range(len(some_list)):
+        dic[some_list[i]] = i
+
+    return dic
 
 
 def color_name_to_hex(colors: list) -> list:
